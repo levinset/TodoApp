@@ -24,7 +24,7 @@ export default function TodoForm({ addTodo }: TodoFormProps) {
           placeholder="Enter your todo"
         />
         <button
-          className="px-4 py-2  bg-[#ff6666] text-white uppercase font-bold border-solid border border-white border-opacity-30 ml-5 cursor-pointer transition-background duration-200 ease-out hover:bg-red-500 max-sm:ml-0"
+          className="px-4 py-2  bg-[#ff6666] text-white uppercase font-bold border-solid border border-white border-opacity-30 ml-5 cursor-pointer transition-background duration-200 ease-out hover:bg-white hover:text-[#ff6666] max-sm:ml-0 rounded-md"
           type="submit"
         >
           Add Todo

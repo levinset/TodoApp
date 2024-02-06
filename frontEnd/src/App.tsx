@@ -27,8 +27,10 @@ function App() {
   return (
     <>
       <div className="flex flex-row items-center justify-center h-screen p-0 m-0 bg-gradient-to-r from-blue-400 via-teal-400 to-pink-300">
-        <main className="mx-auto my-[4rem] p-[3rem] bg-[#ff6666] text-white box-shadow ">
-          <h1 className="text-2xl font-bold text-center ">Todo List</h1>
+        <main className="mx-auto my-[4rem] p-[3rem] bg-[#ff6666] text-white box-shadow rounded-md ">
+          <h1 className="text-2xl font-bold text-center uppercase ">
+            Todo List
+          </h1>
           {data?.map((todo: TodoType) => (
             <TodoList key={todo.id} {...todo} />
           ))}
