@@ -1,11 +1,11 @@
-//
+//impoert libraries
 import { useForm, SubmitHandler } from "react-hook-form";
 import { InputTodoType } from "../types/types";
-//
+//types
 interface TodoFormProps {
   addTodo: (todo: InputTodoType) => void;
 }
-//
+//main component
 export default function TodoForm({ addTodo }: TodoFormProps) {
   const { register, handleSubmit, reset } = useForm<InputTodoType>();
   const onSubmit: SubmitHandler<InputTodoType> = (inputData) => {

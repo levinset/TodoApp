@@ -12,21 +12,36 @@ export default function TodoList(props: TodoType) {
   const { mutate: deleteTodos } = useDeletTodo();
   //usestate for editing mode
   const [isEditing, setIsEditing] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
   //handle delete
   const handleDelete = async () => {
     await deleteTodos(props.id);
+  };
+  //handle checkbox
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
   };
   return (
     <div>
       <div className="text-center">
         <ul className="p-0 mt-5 list-none ">
-          <li className="bg-[#ff5e5e] p-2 my-2 rounded-md flex items-center shadow-sm max-sm:w-[15rem]  ">
+          <li
+            className={`bg-[#ff5e5e] p-2 my-2 rounded-md flex items-center shadow-sm max-sm:w-[15rem] ${
+              isChecked ? "line-through" : ""
+            } ${isChecked ? "text-gray-600" : "text-white"} ${
+              isChecked ? "bg-slate-400" : ""
+            } `}
+          >
             {isEditing ? (
               <TodoEditForm {...props} setIsEditing={setIsEditing} />
             ) : (
               <div className="flex flex-row justify-between w-full max-sm:flex-col max-sm:gap-2">
                 <div className="flex flex-row items-center gap-1 text-xl font-semibold capitalize">
-                  <input type="checkbox" />
+                  <input
+                    onChange={handleCheckboxChange}
+                    type="checkbox"
+                    className=" w-5 h-5 "
+                  />
                   <p>{props.attributes.item}</p>
                 </div>
                 <div className="flex flex-row items-center gap-2 max-sm:gap-10 max-sm:justify-center">
